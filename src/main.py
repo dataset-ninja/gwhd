@@ -4,16 +4,16 @@ import os
 import sys
 
 import supervisely as sly
-from dataset_tools import ProjectRepo
 from dotenv import load_dotenv
 
-import options as o
-import settings as s
-from convert import convert_and_upload_supervisely_project
+import src.options as o
+import src.settings as s
+from dataset_tools import ProjectRepo
+from src.convert import convert_and_upload_supervisely_project
 
 PARENT_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 LOCAL_ENV = os.path.join(PARENT_PATH, "local.env")
-load_dotenv(r"C:\Users\German/ninja.env")
+load_dotenv(os.path.expanduser("~/ninja.env"))
 load_dotenv(LOCAL_ENV)
 SERVER_ADDRESS = os.getenv("SERVER_ADDRESS")
 TEAM_ID = sly.env.team_id()
