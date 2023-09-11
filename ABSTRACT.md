@@ -1,0 +1,3 @@
+The author of **Global Wheat Head Dataset** pursues the goal of automating the process of counting wheat heads with the means of Deep Learning. However, this task is visually complex due to factors like plant overlap, wind-induced blurring, and varying appearances based on maturity, color, genotype, and orientation.
+
+The dataset comprises over 6000 images, each with dimensions of 1024x1024 pixels, containing more than 300,000 distinct wheat heads, each associated with its respective bounding boxes. These images were taken in 11 different countries and cover 44 unique measurement sessions. A measurement session refers to a collection of images captured at a consistent location, within a few hours.
