@@ -73,7 +73,6 @@ if __name__ == "__main__":
     project_repo = ProjectRepo(api, project_id, settings)
     project_repo.build_stats(force=force_stats, settings=stat_options)
     project_repo.build_visualizations(force=force_visuals, settings=vis_options)
-
     project_repo.build_demo(force=force_demo)
     project_repo.build_texts(force=force_texts, preview_class=o.PREVIEW_CLASS)
 
