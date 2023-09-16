@@ -75,36 +75,43 @@ def convert_and_upload_supervisely_project(
             next(ann_file)
             pbar = tqdm.tqdm(desc="total images...", total=len(sly.fs.list_files(dataset_path)))
             # iterate over images within annotation file
-            for row in ann_file:
-                image_name = row[0]
-                bboxes_list = row[1].split(";")
-                domain = row[2]
+            try:
+                for row in ann_file:
+                    image_name = row[0]
+                    bboxes_list = row[1].split(";")
+                    domain = row[2]
 
-                image_path = os.path.join(dataset_path, image_name)
-                if api.image.exists(dataset.id, image_name):
-                    continue
-                image_info = api.image.upload_path(dataset.id, image_name, image_path)
-                # iterate over bboxes
-                labels = []
-                for bbox in bboxes_list:
-                    if bbox == "no_box":
+                    image_path = os.path.join(dataset_path, image_name)
+                    if api.image.exists(dataset.id, image_name):
                         continue
-                    x_min, y_min, x_max, y_max = bbox.split()
-                    bbox = sly.Rectangle(
-                        top=int(y_min), left=int(x_min), bottom=int(y_max), right=int(x_max)
+                    image_info = api.image.upload_path(dataset.id, image_name, image_path)
+                    # iterate over bboxes
+                    labels = []
+                    for bbox in bboxes_list:
+                        if bbox == "no_box":
+                            continue
+                        x_min, y_min, x_max, y_max = bbox.split()
+                        bbox = sly.Rectangle(
+                            top=int(y_min), left=int(x_min), bottom=int(y_max), right=int(x_max)
+                        )
+                        label = sly.Label(bbox, obj_class)
+                        labels.append(label)
+                    # upload annotation and add tags
+                    ann = sly.Annotation(
+                        img_size=[image_info.height, image_info.width], labels=labels
                     )
-                    label = sly.Label(bbox, obj_class)
-                    labels.append(label)
-                # upload annotation and add tags
-                ann = sly.Annotation(img_size=[image_info.height, image_info.width], labels=labels)
-                for i, tagmeta in enumerate(tag_meta_list):
-                    if i == 0:
-                        tag = sly.Tag(tagmeta, domain)
-                    else:
-                        tag = sly.Tag(tagmeta, meta_dict.get(domain)[(i - 1)])
-                    ann = ann.add_tag(tag)
-                api.annotation.upload_ann(image_info.id, ann)
+                    for i, tagmeta in enumerate(tag_meta_list):
+                        if i == 0:
+                            tag = sly.Tag(tagmeta, domain)
+                        else:
+                            tag = sly.Tag(tagmeta, meta_dict.get(domain)[(i - 1)])
+                        ann = ann.add_tag(tag)
+                    api.annotation.upload_ann(image_info.id, ann)
+                    pbar.update(1)
+            except Exception as e:
+                sly.logger.warning(e)
                 pbar.update(1)
+                continue
     pbar.close()
 
     return project

@@ -7,3 +7,4 @@ dataset_tools/
 dataset_tools
 supervisely/
 supervisely
+testconvert.py
