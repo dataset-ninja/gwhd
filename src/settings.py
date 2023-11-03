@@ -14,7 +14,7 @@ from dataset_tools.templates import (
 # * Before uploading to instance #
 ##################################
 PROJECT_NAME: str = "GWHD 2021"
-PROJECT_NAME_FULL: str = "GWHD: Global Wheat Head Dataset 2021"
+PROJECT_NAME_FULL: str = "GWHD: Global Wheat Head Dataset 2021 v1"
 HIDE_DATASET = False  # set False when 100% sure about repo quality
 
 ##################################
