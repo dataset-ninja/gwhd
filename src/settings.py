@@ -14,7 +14,7 @@ from dataset_tools.templates import (
 # * Before uploading to instance #
 ##################################
 PROJECT_NAME: str = "GWHD 2021"
-PROJECT_NAME_FULL: str = "GWHD 2021: Global Wheat Head Dataset 2021"
+PROJECT_NAME_FULL: str = "GWHD: Global Wheat Head Dataset 2021"
 HIDE_DATASET = False  # set False when 100% sure about repo quality
 
 ##################################
@@ -31,7 +31,7 @@ RELEASE_DATE: Optional[str] = "2021-07-12"  # e.g. "YYYY-MM-DD"
 if RELEASE_DATE is None:
     RELEASE_YEAR: int = None
 
-HOMEPAGE_URL: str = "https://zenodo.org/record/5092309#.ZGJAAHbMIuV"
+HOMEPAGE_URL: str = "https://www.global-wheat.com/gwhd.html"
 # e.g. "https://some.com/dataset/homepage"
 
 PREVIEW_IMAGE_ID: int = 4234685
@@ -59,7 +59,7 @@ PAPER: Optional[Union[str, List[str], Dict[str, str]]] = [
     "https://spj.science.org/doi/full/10.34133/2021/9846158",
 ]
 BLOGPOST: Optional[Union[str, List[str], Dict[str, str]]] = None
-REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = None
+REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = ["https://zenodo.org/record/5092309#.ZGJAAHbMIuV"]
 
 CITATION_URL: Optional[str] = "https://zenodo.org/record/5092309/export/hx"
 AUTHORS: Optional[List[str]] = [
@@ -99,6 +99,7 @@ AUTHORS: Optional[List[str]] = [
     "Ian Stavness",
     "Wei Guo",
 ]
+AUTHORS_CONTACTS: Optional[List[str]] = ["n.stavness@usask.ca", "owei@isas.a.u-tokyo.ac.jp"]
 
 ORGANIZATION_NAME: Optional[Union[str, List[str]]] = [
     "FR-AUS-CN-USA-MEX-NW-SUD-JAP-CH-UK-BEL-CND joint research group"
@@ -156,6 +157,7 @@ def get_settings():
     settings["repository"] = REPOSITORY
     settings["citation_url"] = CITATION_URL
     settings["authors"] = AUTHORS
+    settings["authors_contacts"] = AUTHORS_CONTACTS
     settings["organization_name"] = ORGANIZATION_NAME
     settings["organization_url"] = ORGANIZATION_URL
     settings["slytagsplit"] = SLYTAGSPLIT
