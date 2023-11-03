@@ -59,7 +59,7 @@ PAPER: Optional[Union[str, List[str], Dict[str, str]]] = [
     "https://spj.science.org/doi/full/10.34133/2021/9846158",
 ]
 BLOGPOST: Optional[Union[str, List[str], Dict[str, str]]] = None
-REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = ["https://zenodo.org/record/5092309#.ZGJAAHbMIuV"]
+REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = {"GitHub":"https://zenodo.org/record/5092309#.ZGJAAHbMIuV"}
 
 CITATION_URL: Optional[str] = "https://zenodo.org/record/5092309/export/hx"
 AUTHORS: Optional[List[str]] = [
