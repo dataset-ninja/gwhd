@@ -1,4 +1,4 @@
-**GWHD 2021: Global Wheat Head Dataset 2021** is a dataset for an object detection task. It is used in the agricultural industry. 
+**GWHD: Global Wheat Head Dataset 2021 v1** is a dataset for an object detection task. It is used in the agricultural industry. 
 
 The dataset consists of 4948 images with 188500 labeled objects belonging to 1 single class (*wheat head*).
 
