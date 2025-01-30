@@ -1,6 +1,6 @@
 Dataset **GWHD 2021** can be downloaded in [Supervisely format](https://developer.supervisely.com/api-references/supervisely-annotation-json-format):
 
- [Download](https://www.dropbox.com/scl/fi/oconij86zkpkl7dl66qkv/gwhd-2021-DatasetNinja.tar?rlkey=hbyhk61lzwwfn0mn8dqkauq57&dl=1)
+ [Download](https://assets.supervisely.com/remote/eyJsaW5rIjogImZzOi8vYXNzZXRzLzIxMDJfR1dIRCAyMDIxL2d3aGQtMjAyMS1EYXRhc2V0TmluamEudGFyIiwgInNpZyI6ICJDdHlvTnQxNzg0cXdka0NtM0ora3lYcXpBV1VBeGFaVXc2YW9oNU9RYTc4PSJ9)
 
 As an alternative, it can be downloaded with *dataset-tools* package:
 ``` bash
